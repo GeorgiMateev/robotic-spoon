@@ -55,11 +55,11 @@ void setup()
   Servo2.attach(11);  // Second servo on D11
   delay(50);
   Servo1.write(0);	// These are command checks to see if the servos work and
-  Servo2.write(60);	// to help w/ the initial installation.
+  Servo2.write(0);	// to help w/ the initial installation.
   delay(500);		// Make sure these movements are clear from the rest of the chassis.
-  Servo1.write(180);
-  Servo2.write(120);
-  delay(500);
+//  Servo1.write(30);
+//  Servo2.write(30);
+//  delay(500);
   Servo1.write(0);
   Servo2.write(90);
   delay(500);
@@ -201,12 +201,12 @@ void processAccelGyro()
 
 
     float newPitch = -mpuPitch + 90;
-    if (newPitch > 180) newPitch = 180;
-    if (newPitch < 0) newPitch = 0;
+    if (newPitch > 160) newPitch = 160;
+    if (newPitch < 20) newPitch = 20;
 
     float newRoll = mpuRoll + 90;
-    if (newRoll > 180) newRoll = 180;
-    if (newRoll < 0) newRoll = 0;
+    if (newRoll > 100) newRoll = 100;
+    if (newRoll < 20) newRoll = 20;
 
     Servo1.write(newPitch);
     Servo2.write(newRoll);
